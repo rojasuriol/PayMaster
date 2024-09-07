@@ -1,5 +1,6 @@
 package com.ucv.calidad.software.PayMaster.worker.entity;
 
+import com.ucv.calidad.software.PayMaster.departament.Department;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,8 +17,7 @@ import java.util.Date;
 public class Worker {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "WORKER_SEQ")
-    @SequenceGenerator(name = "WORKER_SEQ", sequenceName = "WORKER_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_WORKER")
     private Long idWorker;
 
@@ -30,8 +30,8 @@ public class Worker {
     @Column(name = "DNI_WORKER")
     private String dni;
 
-    @Column(name = "ESTADO_WORKER")
-    private String estado;
+    @Column(name = "STATUS_WORKER")
+    private String status;
 
     @Column(name = "DATE_BIRTH_WORKER")
     private LocalDate dateOfBirth;
@@ -48,18 +48,22 @@ public class Worker {
     @Column(name = "REGISTRATION_DAY")
     private LocalDate registrationDay;
 
-    @Column(name = "CREATION_BY")
+    @Column(name = "CREATED_BY")
     private String createdBy;
 
     @Column(name = "MODIFICATION_DAY")
     private LocalDate modificationDay;
 
-    @Column(name = "MODIFICATION_BY")
-    private String modificationBy;
+    @Column(name = "MODIFIED_BY")
+    private String modifiedBy;
 
-    @Column(name = "ELIMINATION_DAY")
-    private LocalDate eliminationDay;
+    @Column(name = "DELETED_DAY")
+    private LocalDate deletedDay;
 
-    @Column(name = "ELIMINATION_BY")
-    private String EliminationBy;
+    @Column(name = "DELETED_BY")
+    private String deletedBy;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_DEPARTMENT")
+    private Department department;
 }

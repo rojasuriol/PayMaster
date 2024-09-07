@@ -1,4 +1,4 @@
-package com.ucv.calidad.software.PayMaster.worker.dto;
+package com.ucv.calidad.software.PayMaster.departament.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,8 +9,8 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class WorkerListOutputDto {
-    List<WorkerDTO> workers;
+public class DepartamentListOutputDto {
+    List<DepartmentDTO> departments;
 
 
 }

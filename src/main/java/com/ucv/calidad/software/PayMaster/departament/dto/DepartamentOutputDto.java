@@ -1,4 +1,4 @@
-package com.ucv.calidad.software.PayMaster.worker.dto;
+package com.ucv.calidad.software.PayMaster.departament.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class WorkerOutputDto {
-    WorkerDTO worker;
+public class DepartamentOutputDto {
+    DepartmentDTO department;
 
 
 }

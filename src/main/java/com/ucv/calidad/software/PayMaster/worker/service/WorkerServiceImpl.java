@@ -1,6 +1,6 @@
 package com.ucv.calidad.software.PayMaster.worker.service;
 
-import com.ucv.calidad.software.PayMaster.worker.dto.WorkerDto;
+import com.ucv.calidad.software.PayMaster.worker.dto.WorkerDTO;
 import com.ucv.calidad.software.PayMaster.worker.dto.WorkerListOutputDto;
 import com.ucv.calidad.software.PayMaster.worker.entity.Worker;
 import com.ucv.calidad.software.PayMaster.worker.mappers.GetWorkerOutputMapper;
@@ -27,7 +27,7 @@ public class WorkerServiceImpl implements WorkerService{
         List<Worker> products = workerRepository.findAll();
 
 
-        List<WorkerDto> workerDtos = products.stream().map(getMapper::toDTO).collect(Collectors.toList());
+        List<WorkerDTO> workerDtos = products.stream().map(getMapper::toDTO).collect(Collectors.toList());
 
         WorkerListOutputDto outputDto = new WorkerListOutputDto();
         outputDto.setWorkers(workerDtos);
