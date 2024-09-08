@@ -4,6 +4,7 @@ import com.ucv.calidad.software.PayMaster.worker.dto.WorkerDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 import java.util.Set;
 
@@ -11,7 +12,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DepartmentDTO {
-    private Long idDepartment;
+    @Id
+    private int idDepartment;
     private String name;
     private String description;
     private Set<WorkerDTO> workers;

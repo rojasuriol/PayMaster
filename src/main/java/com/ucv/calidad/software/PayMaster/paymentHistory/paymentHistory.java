@@ -1,11 +1,10 @@
-package com.ucv.calidad.software.PayMaster.paymanHistory;
+package com.ucv.calidad.software.PayMaster.paymentHistory;
 
 import com.ucv.calidad.software.PayMaster.worker.entity.Worker;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
@@ -14,11 +13,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 @Table(name = "PAYMENT_HISTORY")
-public class paymanHistory {
+public class paymentHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_PAYMENT_HISTORY")
-    private Long idPaymentHistory;
+    private int idPaymentHistory;
 
     @ManyToOne
     @JoinColumn(name = "ID_WORKER")

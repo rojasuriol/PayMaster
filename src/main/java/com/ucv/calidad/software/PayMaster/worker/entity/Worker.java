@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -19,7 +18,7 @@ public class Worker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_WORKER")
-    private Long idWorker;
+    private int idWorker;
 
     @Column(name = "FIRST_NAME_WORKER")
     private String firstName;
@@ -64,6 +63,7 @@ public class Worker {
     private String deletedBy;
 
     @ManyToOne
-    @JoinColumn(name = "ID_DEPARTMENT")
+    @JoinColumn(name = "ID_DEPARTMENT", referencedColumnName = "ID_DEPARTMENT")
     private Department department;
+
 }

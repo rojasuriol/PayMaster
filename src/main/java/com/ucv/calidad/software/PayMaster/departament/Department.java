@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -19,7 +19,7 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_DEPARTMENT")
-    private Long idDepartment;
+    private int idDepartment;
 
     @Column(name = "NAME_DEPARTMENT")
     private String name;
@@ -45,4 +45,5 @@ public class Department {
     private String deletedBy;
     @OneToMany(mappedBy = "department")
     private Set<Worker> workers;
+
 }

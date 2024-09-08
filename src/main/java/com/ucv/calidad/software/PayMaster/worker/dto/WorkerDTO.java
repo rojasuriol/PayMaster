@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class WorkerDTO {
     @Id
-    private Long idWorker;
+    private int idWorker;
     private String firstName;
     private String lastName;
     private String dni;

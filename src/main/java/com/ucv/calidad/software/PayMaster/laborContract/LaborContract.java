@@ -18,7 +18,7 @@ public class LaborContract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_CONTRACT")
-    private Long idContract;
+    private int idContract;
 
     @ManyToOne
     @JoinColumn(name = "ID_WORKER")

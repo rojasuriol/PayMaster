@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+
 
 import java.time.LocalDate;
 
@@ -18,7 +18,7 @@ public class UserRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_USER_ROLE")
-    private Long idUserRole;
+    private int idUserRole;
 
     @ManyToOne
     @JoinColumn(name = "ID_WORKER")
