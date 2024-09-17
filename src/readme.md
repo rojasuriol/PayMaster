@@ -1,4 +1,3 @@
---SCRIPT DE BD --
 USE pay_master_db;
 
 -- TABLE WORKER
