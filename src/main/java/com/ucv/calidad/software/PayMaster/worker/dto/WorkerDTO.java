@@ -18,7 +18,6 @@ public class WorkerDTO {
     private String firstName;
     private String lastName;
     private String dni;
-    private String status;
     private LocalDate dateOfBirth;
     private String gender;
     private String contactNumber;

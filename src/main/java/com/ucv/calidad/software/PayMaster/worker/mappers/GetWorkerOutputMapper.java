@@ -20,7 +20,6 @@ public class GetWorkerOutputMapper {
         worker.setDni(workerDto.getDni());
         worker.setFirstName(workerDto.getFirstName());
         worker.setLastName(workerDto.getLastName());
-        worker.setStatus(workerDto.getStatus());
         worker.setDateOfBirth(workerDto.getDateOfBirth());
         worker.setGender(workerDto.getGender());
         worker.setContactNumber(workerDto.getContactNumber());
@@ -40,7 +39,6 @@ public class GetWorkerOutputMapper {
         dto.setDni(worker.getDni());
         dto.setFirstName(worker.getFirstName());
         dto.setLastName(worker.getLastName());
-        dto.setStatus(worker.getStatus());
         dto.setDateOfBirth(worker.getDateOfBirth());
         dto.setGender(worker.getGender());
         dto.setContactNumber(worker.getContactNumber());

@@ -28,9 +28,10 @@ public class WorkerServiceImpl implements WorkerService {
     @Autowired
     @Qualifier("GetWorkerOutputMapper")
     private GetWorkerOutputMapper getMapper;
-
+    @Autowired
     @Qualifier("PostWorkerOutputMapper")
     private PostWorkerOutputMapper postMapper;
+
 
     @Qualifier("PutWorkerOutputMapper")
     private PutWorkerOutputMapper putMapper;
@@ -63,7 +64,6 @@ public class WorkerServiceImpl implements WorkerService {
         worker.setFirstName(workerDTO.getFirstName());
         worker.setLastName(workerDTO.getLastName());
         worker.setDni(workerDTO.getDni());
-        worker.setStatus(workerDTO.getStatus());
         worker.setDateOfBirth(workerDTO.getDateOfBirth());
         worker.setGender(workerDTO.getGender());
         worker.setContactNumber(workerDTO.getContactNumber());

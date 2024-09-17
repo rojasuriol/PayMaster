@@ -29,9 +29,6 @@ public class Worker {
     @Column(name = "DNI_WORKER")
     private String dni;
 
-    @Column(name = "STATUS_WORKER")
-    private String status;
-
     @Column(name = "DATE_BIRTH_WORKER")
     private LocalDate dateOfBirth;
 
