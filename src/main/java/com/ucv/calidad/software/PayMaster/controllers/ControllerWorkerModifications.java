@@ -29,5 +29,9 @@ public class ControllerWorkerModifications {
     public WorkerOutputDto updateWorker(@RequestBody WorkerDTO workerDTO, @PathVariable Long id) {
         return workerService.updateWorker(workerDTO, id);
     }
-
+    @DeleteMapping(value = "/Workers/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.NO_CONTENT) // 200 OK
+    public void deleteWorker( @PathVariable Long id) {
+        workerService.deleteWorker(id);
+    }
 }

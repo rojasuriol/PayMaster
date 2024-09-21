@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service("workerService")
@@ -89,23 +90,25 @@ public class WorkerServiceImpl implements WorkerService {
         worker.setGender(workerDTO.getGender());
         worker.setContactNumber(workerDTO.getContactNumber());
         worker.setEmail(workerDTO.getEmail());
-        worker.setDepartment(toDepartment(workerDTO.getDepartment()));  // Asignar departamento actualizado
+        worker.setDepartment(toDepartment(workerDTO.getDepartment()));
         worker.setModificationDay(LocalDate.now());
-        worker.setModifiedBy("jean");  // Puedes cambiarlo por el usuario autenticado
-
-        // Guardar el trabajador actualizado
+        worker.setModifiedBy("jean");
         Worker updatedWorker = workerRepository.save(worker);
-
-        // Mapear el trabajador actualizado a DTO
         WorkerDTO workerDTOMapper = putMapper.toDTO(updatedWorker);
 
-        // Retornar el DTO de salida
         return new WorkerOutputDto(workerDTOMapper);
     }
 
+    public void deleteWorker(Long id) {
+        Worker worker = workerRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Worker not found with id: " + id));
+        if (!(worker == null)) {
+            worker.setDeletedDay(LocalDate.now());
+            worker.setDeletedBy("Jean");
+            Worker deleteWorker = workerRepository.save(worker);
 
-
-
+        }
+    }
     private Department toDepartment(DepartmentDTO departmentDTO) {
         if (departmentDTO == null) {
             return null;

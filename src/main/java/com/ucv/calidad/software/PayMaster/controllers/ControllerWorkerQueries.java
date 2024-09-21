@@ -1,14 +1,12 @@
 package com.ucv.calidad.software.PayMaster.controllers;
 
 import com.ucv.calidad.software.PayMaster.worker.dto.WorkerListOutputDto;
+import com.ucv.calidad.software.PayMaster.worker.dto.WorkerOutputDto;
 import com.ucv.calidad.software.PayMaster.worker.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController("ControllerWorkerQueries")
 @RequestMapping("/v1")
@@ -24,5 +22,9 @@ public class ControllerWorkerQueries {
     public WorkerListOutputDto getAllWorkers() {
         return workerService.getAllWorkers();
     }
-
+    @GetMapping(value = "/Workers/{idWorker}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.PARTIAL_CONTENT) // 206 OK
+    public WorkerOutputDto getWorkersById(@PathVariable Long idWorker) {
+        return workerService.getWorkerById(idWorker);
+    }
 }

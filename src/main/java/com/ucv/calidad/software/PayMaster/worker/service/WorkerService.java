@@ -10,4 +10,5 @@ public interface WorkerService {
     WorkerOutputDto getWorkerById(Long idWorker);
     WorkerOutputDto createWorker(WorkerDTO workerDTO);
     WorkerOutputDto updateWorker(WorkerDTO workerDTO, Long id);
+    void deleteWorker(Long id);
 }
