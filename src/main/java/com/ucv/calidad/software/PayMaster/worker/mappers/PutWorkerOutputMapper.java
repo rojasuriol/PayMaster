@@ -1,4 +1,6 @@
 package com.ucv.calidad.software.PayMaster.worker.mappers;
+import com.ucv.calidad.software.PayMaster.departament.Department;
+import com.ucv.calidad.software.PayMaster.departament.dto.DepartmentDTO;
 import com.ucv.calidad.software.PayMaster.worker.dto.WorkerDTO;
 import com.ucv.calidad.software.PayMaster.worker.entity.Worker;
 import lombok.extern.slf4j.Slf4j;
@@ -38,11 +40,23 @@ public class PutWorkerOutputMapper {
         dto.setGender(worker.getGender());
         dto.setContactNumber(worker.getContactNumber());
         dto.setEmail(worker.getEmail());
+        dto.setDepartment(toDepartmentDTO(worker.getDepartment()));
         dto.setRegistrationDay(worker.getRegistrationDay());
         dto.setCreatedBy(worker.getCreatedBy());
         dto.setModificationDay(worker.getModificationDay());
         dto.setModifiedBy(worker.getModifiedBy());
         return dto;
+    }
+    private DepartmentDTO toDepartmentDTO(Department department) {
+        if (department == null) {
+            return null;
+        }
+        DepartmentDTO departmentDTO = new DepartmentDTO();
+        departmentDTO.setIdDepartment(department.getIdDepartment());
+        departmentDTO.setName(department.getName());
+
+
+        return departmentDTO;
     }
     public List<WorkerDTO> entitiesListToDto (List<Worker> entities){
         return entities.stream()

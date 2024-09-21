@@ -23,4 +23,11 @@ public class ControllerWorkerModifications {
     public WorkerOutputDto createproduct(@RequestBody WorkerDTO workerDTO) {
         return workerService.createWorker(workerDTO);
     }
+
+    @PutMapping(value = "/Workers/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(code = HttpStatus.OK) // 200 OK
+    public WorkerOutputDto updateWorker(@RequestBody WorkerDTO workerDTO, @PathVariable Long id) {
+        return workerService.updateWorker(workerDTO, id);
+    }
+
 }
