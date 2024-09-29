@@ -14,13 +14,15 @@ public class PostWorkerOutputMapper {
     public Worker toEntity(WorkerDTO workerDto ) {
         Worker worker = new Worker();
         worker.setIdWorker(workerDto.getIdWorker());
-        worker.setDni(workerDto.getDni());
         worker.setFirstName(workerDto.getFirstName());
         worker.setLastName(workerDto.getLastName());
+        worker.setDni(workerDto.getDni());
+        worker.setNationality(workerDto.getNationality());
         worker.setDateOfBirth(workerDto.getDateOfBirth());
         worker.setGender(workerDto.getGender());
         worker.setContactNumber(workerDto.getContactNumber());
         worker.setEmail(workerDto.getEmail());
+        worker.setAddress(workerDto.getAddress());
         worker.setRegistrationDay(workerDto.getRegistrationDay());
         worker.setCreatedBy(workerDto.getCreatedBy());
         return worker;
@@ -29,14 +31,15 @@ public class PostWorkerOutputMapper {
     public WorkerDTO toDTO(Worker worker) {
         WorkerDTO dto = new WorkerDTO();
         dto.setIdWorker(worker.getIdWorker());
-        dto.setDni(worker.getDni());
         dto.setFirstName(worker.getFirstName());
         dto.setLastName(worker.getLastName());
-
+        dto.setDni(worker.getDni());
+        dto.setNationality(worker.getNationality());
         dto.setDateOfBirth(worker.getDateOfBirth());
         dto.setGender(worker.getGender());
         dto.setContactNumber(worker.getContactNumber());
         dto.setEmail(worker.getEmail());
+        dto.setAddress(worker.getAddress());
         dto.setRegistrationDay(worker.getRegistrationDay());
         dto.setCreatedBy(worker.getCreatedBy());
         return dto;

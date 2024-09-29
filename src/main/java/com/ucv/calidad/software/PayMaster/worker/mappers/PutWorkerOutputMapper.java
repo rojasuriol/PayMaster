@@ -1,6 +1,4 @@
 package com.ucv.calidad.software.PayMaster.worker.mappers;
-import com.ucv.calidad.software.PayMaster.departament.Department;
-import com.ucv.calidad.software.PayMaster.departament.dto.DepartmentDTO;
 import com.ucv.calidad.software.PayMaster.worker.dto.WorkerDTO;
 import com.ucv.calidad.software.PayMaster.worker.entity.Worker;
 import lombok.extern.slf4j.Slf4j;
@@ -19,10 +17,12 @@ public class PutWorkerOutputMapper {
         worker.setDni(workerDto.getDni());
         worker.setFirstName(workerDto.getFirstName());
         worker.setLastName(workerDto.getLastName());
+        worker.setNationality(workerDto.getNationality());
         worker.setDateOfBirth(workerDto.getDateOfBirth());
         worker.setGender(workerDto.getGender());
         worker.setContactNumber(workerDto.getContactNumber());
         worker.setEmail(workerDto.getEmail());
+        worker.setAddress(workerDto.getAddress());
         worker.setRegistrationDay(workerDto.getRegistrationDay());
         worker.setCreatedBy(workerDto.getCreatedBy());
         worker.setModificationDay(workerDto.getModificationDay());
@@ -36,28 +36,19 @@ public class PutWorkerOutputMapper {
         dto.setDni(worker.getDni());
         dto.setFirstName(worker.getFirstName());
         dto.setLastName(worker.getLastName());
+        dto.setNationality(worker.getNationality());
         dto.setDateOfBirth(worker.getDateOfBirth());
         dto.setGender(worker.getGender());
         dto.setContactNumber(worker.getContactNumber());
         dto.setEmail(worker.getEmail());
-        dto.setDepartment(toDepartmentDTO(worker.getDepartment()));
+        dto.setAddress(worker.getAddress());
         dto.setRegistrationDay(worker.getRegistrationDay());
         dto.setCreatedBy(worker.getCreatedBy());
         dto.setModificationDay(worker.getModificationDay());
         dto.setModifiedBy(worker.getModifiedBy());
         return dto;
     }
-    private DepartmentDTO toDepartmentDTO(Department department) {
-        if (department == null) {
-            return null;
-        }
-        DepartmentDTO departmentDTO = new DepartmentDTO();
-        departmentDTO.setIdDepartment(department.getIdDepartment());
-        departmentDTO.setName(department.getName());
 
-
-        return departmentDTO;
-    }
     public List<WorkerDTO> entitiesListToDto (List<Worker> entities){
         return entities.stream()
                 .map(this::toDTO)

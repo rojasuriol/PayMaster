@@ -1,6 +1,5 @@
 package com.ucv.calidad.software.PayMaster.worker.entity;
 
-import com.ucv.calidad.software.PayMaster.departament.Department;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +19,7 @@ public class Worker {
     @Column(name = "ID_WORKER")
     private int idWorker;
 
-    @Column(name = "FIRST_NAME_WORKER")
+    @Column(name = "FIRST_NAME_WORKER",nullable = false)
     private String firstName;
 
     @Column(name = "LAST_NAME_WORKER")
@@ -35,11 +34,16 @@ public class Worker {
     @Column(name = "GENDER_WORKER")
     private String gender;
 
+    @Column(name = "NATIONALITY_WORKER")
+    private String nationality;
+
     @Column(name = "CONTACT_NUMBER_WORKER")
     private String contactNumber;
 
     @Column(name = "EMAIL_WORKER")
     private String email;
+    @Column(name = "ADDRESS_WORKER")
+    private String address;
 
     @Column(name = "REGISTRATION_DAY")
     private LocalDate registrationDay;
@@ -59,8 +63,5 @@ public class Worker {
     @Column(name = "DELETED_BY")
     private String deletedBy;
 
-    @ManyToOne
-    @JoinColumn(name = "ID_DEPARTMENT", referencedColumnName = "ID_DEPARTMENT")
-    private Department department;
 
 }

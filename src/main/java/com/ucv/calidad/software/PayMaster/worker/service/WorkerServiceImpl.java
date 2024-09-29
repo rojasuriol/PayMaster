@@ -1,7 +1,5 @@
 package com.ucv.calidad.software.PayMaster.worker.service;
 
-import com.ucv.calidad.software.PayMaster.departament.Department;
-import com.ucv.calidad.software.PayMaster.departament.dto.DepartmentDTO;
 import com.ucv.calidad.software.PayMaster.worker.dto.WorkerDTO;
 import com.ucv.calidad.software.PayMaster.worker.dto.WorkerListOutputDto;
 import com.ucv.calidad.software.PayMaster.worker.dto.WorkerOutputDto;
@@ -71,13 +69,15 @@ public class WorkerServiceImpl implements WorkerService {
         worker.setGender(workerDTO.getGender());
         worker.setContactNumber(workerDTO.getContactNumber());
         worker.setEmail(workerDTO.getEmail());
-        worker.setDepartment(toDepartment(workerDTO.getDepartment()));
+        worker.setAddress(workerDTO.getAddress());
+        worker.setNationality(workerDTO.getNationality());
         worker.setRegistrationDay(LocalDate.now());
-        worker.setCreatedBy(workerDTO.getCreatedBy());
+        worker.setCreatedBy("jean");
         Worker createWorker = workerRepository.save(worker);
         WorkerDTO workerDTOMapper = postMapper.toDTO(createWorker);
         return new WorkerOutputDto(workerDTOMapper);
     }
+
 
     public WorkerOutputDto updateWorker(WorkerDTO workerDTO, Long id) {
         Worker worker = workerRepository.findById(id)
@@ -90,7 +90,6 @@ public class WorkerServiceImpl implements WorkerService {
         worker.setGender(workerDTO.getGender());
         worker.setContactNumber(workerDTO.getContactNumber());
         worker.setEmail(workerDTO.getEmail());
-        worker.setDepartment(toDepartment(workerDTO.getDepartment()));
         worker.setModificationDay(LocalDate.now());
         worker.setModifiedBy("jean");
         Worker updatedWorker = workerRepository.save(worker);
@@ -108,14 +107,5 @@ public class WorkerServiceImpl implements WorkerService {
             Worker deleteWorker = workerRepository.save(worker);
 
         }
-    }
-    private Department toDepartment(DepartmentDTO departmentDTO) {
-        if (departmentDTO == null) {
-            return null;
-        }
-        Department department = new Department();
-        department.setIdDepartment(departmentDTO.getIdDepartment());
-        department.setName(departmentDTO.getName());
-        return department;
     }
 }

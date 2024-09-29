@@ -1,7 +1,7 @@
 package com.ucv.calidad.software.PayMaster.worker.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.ucv.calidad.software.PayMaster.departament.dto.DepartmentDTO;
+
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,13 +20,15 @@ public class WorkerDTO {
     private String dni;
     private LocalDate dateOfBirth;
     private String gender;
+    private String nationality ;
     private String contactNumber;
     private String email;
+    private String address;
     private LocalDate registrationDay;
     private String createdBy;
     private LocalDate modificationDay;
     private String modifiedBy;
     private LocalDate deletedDay;
     private String deletedBy;
-    private DepartmentDTO department;
+
 }
